@@ -119,8 +119,6 @@ public class MazeRunner {
 
         System.out.println("The number of steps taken:" + stepsTaken);
         System.out.println("Time played:" + endTime + " seconds");
-
-        updateScore();
     }
 
     public void updateScore() { // Local variables only exist when the method is called and are lost when the
@@ -137,7 +135,7 @@ public class MazeRunner {
 
     public void showInstructions() {
         System.out.println("Instructions");
-        System.out.println("Reach the exit in the least amount of time for maximum score");
+        System.out.println("Reach the exit ('E') in the least amount of time for maximum score");
         System.out.println("Press W to Move Up");
         System.out.println("Press A to Move Left");
         System.out.println("Press S to Move Down");
@@ -166,7 +164,7 @@ public class MazeRunner {
         while (running) {
 
             System.out.println("Press Q to quit the game or W/A/S/D to move the player:");
-            String Choice = myObj.nextLine().toUpperCase();
+            String Choice = myObj.nextLine().trim().toUpperCase();
 
             if (Choice.equals("Q")) {
 
@@ -189,6 +187,7 @@ public class MazeRunner {
                     if (hasPlayerWon()) {
                         System.out.println("You Won");
                         displayResults();
+                        updateScore();
                         running = false;
                     }
                 }
